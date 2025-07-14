@@ -30,7 +30,7 @@
             max-width: 1200px;
             margin: 0 auto;
             display: flex;
-            justify-content: flex-start;
+            justify-content: space-between;
             align-items: center;
             padding: 0 20px;
         }
@@ -38,6 +38,12 @@
         .contact-info {
             display: flex;
             gap: 30px;
+        }
+
+        .store-locations {
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .contact-info span {
@@ -1064,7 +1070,7 @@
         .footer-contact-icon svg {
             width: 16px;
             height: 16px;
-            fill: currentColor;
+
             stroke: currentColor;
         }
 
@@ -1554,6 +1560,41 @@
                 gap: 20px;
             }
         }
+
+        /* Terms Checkbox Two-Column Layout */
+        .terms-checkbox-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin: 20px 0;
+        }
+
+        .terms-checkbox-left {
+            flex-shrink: 0;
+            padding-top: 2px;
+        }
+
+        .terms-checkbox-left input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            accent-color: var(--primary-color, #d4515b);
+        }
+
+        .terms-checkbox-right {
+            flex: 1;
+            font-size: 14px;
+            line-height: 1.4;
+            color: #666;
+        }
+
+        .terms-checkbox-right a {
+            color: var(--primary-color, #d4515b);
+            text-decoration: none;
+        }
+
+        .terms-checkbox-right a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 
@@ -1577,8 +1618,12 @@
                     <div class="top-bar">
                         <div class="top-bar-content">
                             <div class="contact-info">
-                                <span>📞 ${data.contact?.phone || '011-234-5678'}</span>
-                                <span>✉️ ${data.contact?.email || 'info@' + data.siteName.toLowerCase().replace(/\s+/g, '') + '.com'}</span>
+                                <span><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18.3952 13.1277C17.1707 13.1277 15.9684 12.9362 14.8291 12.5597C14.2708 12.3693 13.5845 12.544 13.2438 12.8939L10.995 14.5915C8.38701 13.1994 6.78056 11.5934 5.40743 9.00505L7.05509 6.81484C7.48316 6.38734 7.6367 5.76286 7.45274 5.17693C7.07462 4.03161 6.88253 2.8299 6.88253 1.6049C6.88259 0.719948 6.16264 0 5.27775 0H1.60484C0.719946 0 0 0.719948 0 1.60484C0 11.7481 8.25196 20 18.3952 20C19.2801 20 20 19.2801 20 18.3952V14.7325C19.9999 13.8477 19.28 13.1277 18.3952 13.1277Z" fill="white"/></svg> ${data.contact?.phone || '011-234-5678'}</span>
+                                <span><svg width="22" height="19" viewBox="0 0 22 19" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21.5832 6.4999C21.7508 6.35459 22 6.49053 22 6.72021V16.3062C22 17.5483 21.0762 18.5562 19.9375 18.5562H2.0625C0.923828 18.5562 0 17.5483 0 16.3062V6.7249C0 6.49053 0.244922 6.35928 0.416797 6.50459C1.3793 7.32021 2.65547 8.35615 7.03828 11.8296C7.94492 12.5515 9.47461 14.0702 11 14.0608C12.534 14.0749 14.0937 12.5233 14.966 11.8296C19.3488 8.35615 20.6207 7.31553 21.5832 6.4999ZM11 12.5562C11.9969 12.5749 13.432 11.1874 14.1539 10.6155C19.8559 6.10147 20.2898 5.70771 21.6047 4.58271C21.8539 4.37178 22 4.04365 22 3.69678V2.80615C22 1.56396 21.0762 0.556152 19.9375 0.556152H2.0625C0.923828 0.556152 0 1.56396 0 2.80615V3.69678C0 4.04365 0.146094 4.36709 0.395312 4.58271C1.71016 5.70303 2.14414 6.10147 7.84609 10.6155C8.56797 11.1874 10.0031 12.5749 11 12.5562Z" fill="white"/></svg> ${data.contact?.email || 'info@' + data.siteName.toLowerCase().replace(/\s+/g, '') + '.com'}</span>
+                            </div>
+                            <div class="store-locations">
+                                <svg width="18" height="23" viewBox="0 0 18 23" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.07506 22.536C1.26422 13.0737 0 12.1025 0 8.625C0 3.86153 4.02942 0 9 0C13.9706 0 18 3.86153 18 8.625C18 12.1025 16.7358 13.0737 9.92494 22.536C9.47798 23.1547 8.52197 23.1547 8.07506 22.536ZM9 12.2187C11.0711 12.2187 12.75 10.6098 12.75 8.625C12.75 6.64022 11.0711 5.03125 9 5.03125C6.92892 5.03125 5.25 6.64022 5.25 8.625C5.25 10.6098 6.92892 12.2187 9 12.2187Z" fill="white"/></svg>
+                                <span>Store Locations</span>
                             </div>
                         </div>
                     </div>
@@ -1592,7 +1637,10 @@
                                 <div class="auth-buttons">
                                     <a href="javascript:void(0)" class="btn-login" onclick="openLoginModal()">Login</a>
                                     <a href="#account" class="btn-account">
-                                        👤 MY ACCOUNT
+                                        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M14 0C6.26613 0 0 6.26613 0 14C0 21.7339 6.26613 28 14 28C21.7339 28 28 21.7339 28 14C28 6.26613 21.7339 0 14 0ZM14 5.41935C16.7435 5.41935 18.9677 7.64355 18.9677 10.3871C18.9677 13.1306 16.7435 15.3548 14 15.3548C11.2565 15.3548 9.03226 13.1306 9.03226 10.3871C9.03226 7.64355 11.2565 5.41935 14 5.41935ZM14 24.8387C10.6863 24.8387 7.71694 23.3371 5.72984 20.9887C6.79113 18.9903 8.86855 17.6129 11.2903 17.6129C11.4258 17.6129 11.5613 17.6355 11.6911 17.675C12.425 17.9121 13.1927 18.0645 14 18.0645C14.8073 18.0645 15.5806 17.9121 16.3089 17.675C16.4387 17.6355 16.5742 17.6129 16.7097 17.6129C19.1315 17.6129 21.2089 18.9903 22.2702 20.9887C20.2831 23.3371 17.3137 24.8387 14 24.8387Z" fill="#CA2128"/>
+</svg>
+ MY ACCOUNT
                                     </a>
                                 </div>
                             </div>
@@ -1985,10 +2033,15 @@
                             <div class="footer-column">
                                 <h3>${data.footer?.social?.title || 'Connect With Us'}</h3>
                                 <div class="footer-social">
-                                    ${data.footer?.social?.facebook ? `<a href="${data.footer.social.facebook}" title="Facebook">${data.footer.social.facebookIcon ? `<img src="${data.footer.social.facebookIcon}" alt="Facebook" style="width: 20px; height: 20px; filter: brightness(0) invert(1);">` : 'f'}</a>` : ''}
-                                    ${data.footer?.social?.twitter ? `<a href="${data.footer.social.twitter}" title="Twitter">${data.footer.social.twitterIcon ? `<img src="${data.footer.social.twitterIcon}" alt="Twitter" style="width: 20px; height: 20px; filter: brightness(0) invert(1);">` : '𝕏'}</a>` : ''}
-                                    ${data.footer?.social?.linkedin ? `<a href="${data.footer.social.linkedin}" title="LinkedIn">${data.footer.social.linkedinIcon ? `<img src="${data.footer.social.linkedinIcon}" alt="LinkedIn" style="width: 20px; height: 20px; filter: brightness(0) invert(1);">` : 'in'}</a>` : ''}
-                                    ${data.footer?.social?.instagram ? `<a href="${data.footer.social.instagram}" title="Instagram">${data.footer.social.instagramIcon ? `<img src="${data.footer.social.instagramIcon}" alt="Instagram" style="width: 20px; height: 20px; filter: brightness(0) invert(1);">` : '📷'}</a>` : ''}
+                                    ${data.footer?.social?.facebook ? `<a href="${data.footer.social.facebook}" title="Facebook">${data.footer.social.facebookIcon ? `<img src="${data.footer.social.facebookIcon}" alt="Facebook" style="width: 20px; height: 20px; filter: brightness(0) invert(1);">` : `<svg width="10" height="26" viewBox="0 0 5 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.22771 5.12484H4.26873L4.68513 3.45817H3.22771V2.62484C3.22771 2.43595 3.23604 2.29984 3.25269 2.2165C3.28601 2.08317 3.35818 1.98039 3.46923 1.90817C3.60248 1.83039 3.79957 1.7915 4.06052 1.7915H4.68513V0.391504C4.59075 0.380393 4.44084 0.369282 4.23541 0.358171C3.98002 0.341504 3.73295 0.333171 3.49421 0.333171C3.11112 0.333171 2.77383 0.40956 2.48234 0.562338C2.19086 0.715116 1.96739 0.933171 1.81193 1.2165C1.64537 1.52206 1.56209 1.88039 1.56209 2.2915V3.45817H0.312866V5.12484H1.56209V8.6665H3.22771V5.12484Z" fill="white"/></svg>`}</a>` : ''}
+                                    ${data.footer?.social?.twitter ? `<a href="${data.footer.social.twitter}" title="Twitter">${data.footer.social.twitterIcon ? `<img src="${data.footer.social.twitterIcon}" alt="Twitter" style="width: 20px; height: 20px; filter: brightness(0) invert(1);">` : `<svg width="15" height="15" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.8599 0.775098L4.77787 3.15843L2.97899 0.775098H0.380615L3.48701 4.8501L0.53885 8.2251H1.80472L4.0783 5.61676L6.06872 8.2251H8.6088L5.36916 3.93343L8.12577 0.775098H6.8599ZM6.41851 7.46676L1.85469 1.49176H2.60422L7.11807 7.46676H6.41851Z" fill="white"/></svg>`}</a>` : ''}
+                                    ${data.footer?.social?.linkedin ? `<a href="${data.footer.social.linkedin}" title="LinkedIn">${data.footer.social.linkedinIcon ? `<img src="${data.footer.social.linkedinIcon}" alt="LinkedIn" style="width: 20px; height: 20px; filter: brightness(0) invert(1);">` : `<svg width="15" height="15" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M2.19664 1.58333C2.19109 1.75556 2.14112 1.91111 2.04674 2.05C1.95235 2.18889 1.82743 2.29028 1.67197 2.35417C1.51651 2.41806 1.3555 2.43333 1.18894 2.4C1.02238 2.36667 0.879412 2.28889 0.760042 2.16667C0.640672 2.04444 0.567107 1.9 0.539347 1.73333C0.511586 1.56667 0.531019 1.40556 0.597644 1.25C0.664269 1.09444 0.769758 0.970833 0.914112 0.879166C1.05847 0.787499 1.2167 0.744444 1.38882 0.75C1.6109 0.755555 1.80106 0.838889 1.95929 1C2.11753 1.16111 2.19664 1.35556 2.19664 1.58333ZM2.22163 3.03333H0.556003V8.25H2.22163V3.03333ZM4.85332 3.03333H3.19602V8.25H4.83666V5.51667C4.83666 5.22222 4.90328 4.97222 5.03653 4.76667C5.16423 4.57778 5.32802 4.44722 5.52789 4.375C5.72777 4.30278 5.92764 4.29722 6.12752 4.35833C6.32739 4.41944 6.4884 4.54167 6.61055 4.725C6.74935 4.93611 6.81875 5.2 6.81875 5.51667V8.25H8.46772V4.95C8.46772 4.46111 8.36223 4.04722 8.15125 3.70833C7.96803 3.41389 7.71264 3.19167 7.38507 3.04167C7.08525 2.91389 6.76046 2.85833 6.41068 2.875C6.072 2.89167 5.75831 2.97639 5.4696 3.12917C5.18089 3.28194 4.96991 3.48333 4.83666 3.73333L4.85332 3.03333Z" fill="white"/>
+</svg>`}</a>` : ''}
+                                    ${data.footer?.social?.instagram ? `<a href="${data.footer.social.instagram}" title="Instagram">${data.footer.social.instagramIcon ? `<img src="${data.footer.social.instagramIcon}" alt="Instagram" style="width: 20px; height: 20px; filter: brightness(0) invert(1);">` : `<svg width="15" height="15" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M4.92052 0.333171C5.34248 0.333171 5.64785 0.335949 5.83662 0.341504L6.21138 0.358171C6.60003 0.374838 6.93593 0.438726 7.21909 0.549838C7.50224 0.660949 7.74931 0.82206 7.96029 1.03317C8.17127 1.24428 8.33228 1.4915 8.44332 1.77484C8.55436 2.05817 8.61821 2.39428 8.63487 2.78317L8.65152 3.15817C8.65707 3.35262 8.65985 3.65817 8.65985 4.07484V4.92484C8.65985 5.34706 8.65707 5.65262 8.65152 5.8415L8.63487 6.2165C8.61821 6.60539 8.55436 6.9415 8.44332 7.22484C8.33228 7.50817 8.17127 7.75539 7.96029 7.9665C7.74931 8.17762 7.50224 8.33873 7.21909 8.44984C6.93593 8.56095 6.60003 8.62484 6.21138 8.6415L5.83662 8.65817C5.64229 8.66373 5.33693 8.6665 4.92052 8.6665H4.07105C3.6491 8.6665 3.34373 8.66373 3.15496 8.65817L2.78019 8.6415C2.39155 8.62484 2.05565 8.56095 1.77249 8.44984C1.48934 8.33873 1.24227 8.17762 1.03129 7.9665C0.820309 7.75539 0.659299 7.50817 0.548257 7.22484C0.437216 6.9415 0.373367 6.60539 0.35671 6.2165L0.340054 5.8415C0.334502 5.64706 0.331726 5.3415 0.331726 4.92484V4.07484C0.331726 3.65262 0.334502 3.34706 0.340054 3.15817L0.35671 2.78317C0.373367 2.39428 0.437216 2.05817 0.548257 1.77484C0.659299 1.4915 0.820309 1.24428 1.03129 1.03317C1.24227 0.82206 1.48934 0.660949 1.77249 0.549838C2.05565 0.438726 2.39155 0.374838 2.78019 0.358171L3.15496 0.341504C3.34928 0.335949 3.65465 0.333171 4.07105 0.333171H4.92052ZM4.49579 2.4165C4.11825 2.4165 3.76985 2.50956 3.45061 2.69567C3.13136 2.88178 2.87874 3.13456 2.69275 3.454C2.50675 3.77345 2.41376 4.12206 2.41376 4.49984C2.41376 4.87762 2.50675 5.22623 2.69275 5.54567C2.87874 5.86512 3.13136 6.11789 3.45061 6.304C3.76985 6.49012 4.11825 6.58317 4.49579 6.58317C4.87333 6.58317 5.22172 6.49012 5.54097 6.304C5.86021 6.11789 6.11283 5.86512 6.29883 5.54567C6.48482 5.22623 6.57782 4.87762 6.57782 4.49984C6.57782 4.12206 6.48482 3.77345 6.29883 3.454C6.11283 3.13456 5.86021 2.88178 5.54097 2.69567C5.22172 2.50956 4.87333 2.4165 4.49579 2.4165ZM4.49579 3.24984C4.72342 3.24984 4.93301 3.30539 5.12456 3.4165C5.31611 3.52762 5.4674 3.679 5.57844 3.87067C5.68949 4.06234 5.74501 4.27206 5.74501 4.49984C5.74501 4.72762 5.68949 4.93734 5.57844 5.129C5.4674 5.32067 5.31611 5.47206 5.12456 5.58317C4.93301 5.69428 4.72342 5.74984 4.49579 5.74984C4.26815 5.74984 4.05856 5.69428 3.86702 5.58317C3.67547 5.47206 3.52417 5.32067 3.41313 5.129C3.30209 4.93734 3.24657 4.72762 3.24657 4.49984C3.24657 4.27206 3.30209 4.06234 3.41313 3.87067C3.52417 3.679 3.67547 3.52762 3.86702 3.4165C4.05856 3.30539 4.26815 3.24984 4.49579 3.24984ZM6.67776 1.7915C6.53896 1.7915 6.4182 1.84289 6.31548 1.94567C6.21277 2.04845 6.16141 2.17067 6.16141 2.31234C6.16141 2.454 6.21277 2.57623 6.31548 2.679C6.4182 2.78178 6.54034 2.83317 6.68192 2.83317C6.8235 2.83317 6.94565 2.78178 7.04836 2.679C7.15107 2.57623 7.20243 2.454 7.20243 2.31234C7.20243 2.17067 7.15107 2.04845 7.04836 1.94567C6.94565 1.84289 6.82211 1.7915 6.67776 1.7915Z" fill="white"/>
+</svg>
+`}</a>` : ''}
                                 </div>
                             </div>
                         </div>
@@ -2063,9 +2116,13 @@
                                     <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required>
                                 </div>
                                 
-                                <div class="terms-checkbox">
-                                    <input type="checkbox" id="agreeTerms" name="agreeTerms" required>
-                                    <span>I agree to the <a href="javascript:void(0)">Terms of Service</a> and <a href="javascript:void(0)">Privacy Policy</a></span>
+                                <div class="terms-checkbox-container">
+                                    <div class="terms-checkbox-left">
+                                        <input type="checkbox" id="agreeTerms" name="agreeTerms" required>
+                                    </div>
+                                    <div class="terms-checkbox-right">
+                                        <span>I agree to the <a href="javascript:void(0)">Terms of Service</a> and <a href="javascript:void(0)">Privacy Policy</a></span>
+                                    </div>
                                 </div>
                                 
                                 <button type="submit" class="login-button">Create Account</button>
@@ -2172,7 +2229,7 @@
             if (modal && (!event || event.target === modal || event.target.classList.contains('modal-close'))) {
                 modal.classList.remove('active');
                 document.body.style.overflow = ''; // Restore scrolling
-                
+
                 // Reset form
                 const form = document.getElementById('loginForm');
                 if (form) {
@@ -2183,17 +2240,17 @@
 
         function handleLogin(event) {
             event.preventDefault();
-            
+
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
             const remember = document.getElementById('remember').checked;
-            
+
             // Here you would typically send the login data to your backend
             console.log('Login attempt:', { email, password, remember });
-            
+
             // For demo purposes, just show an alert
             alert('Login functionality would be implemented here');
-            
+
             // Close modal after submission
             closeLoginModal();
         }
@@ -2212,7 +2269,7 @@
             if (modal && (!event || event.target === modal || event.target.classList.contains('modal-close'))) {
                 modal.classList.remove('active');
                 document.body.style.overflow = ''; // Restore scrolling
-                
+
                 // Reset form
                 const form = document.getElementById('signupForm');
                 if (form) {
@@ -2223,30 +2280,30 @@
 
         function handleSignup(event) {
             event.preventDefault();
-            
+
             const fullName = document.getElementById('fullName').value;
             const email = document.getElementById('signupEmail').value;
             const password = document.getElementById('createPassword').value;
             const confirmPassword = document.getElementById('confirmPassword').value;
             const agreeTerms = document.getElementById('agreeTerms').checked;
-            
+
             // Validation
             if (password !== confirmPassword) {
                 alert('Passwords do not match!');
                 return;
             }
-            
+
             if (!agreeTerms) {
                 alert('Please agree to the Terms of Service and Privacy Policy');
                 return;
             }
-            
+
             // Here you would typically send the signup data to your backend
             console.log('Signup attempt:', { fullName, email, password, agreeTerms });
-            
+
             // For demo purposes, just show an alert
             alert('Account creation functionality would be implemented here');
-            
+
             // Close modal after submission
             closeSignupModal();
         }
@@ -2266,7 +2323,7 @@
         }
 
         // Close modal when pressing Escape key
-        document.addEventListener('keydown', function(event) {
+        document.addEventListener('keydown', function (event) {
             if (event.key === 'Escape') {
                 closeLoginModal();
                 closeSignupModal();
