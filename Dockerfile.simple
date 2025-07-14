@@ -1,0 +1,33 @@
+# Simplified Dockerfile for Google Cloud deployment
+FROM node:18-alpine
+
+# Install curl for healthcheck
+RUN apk add --no-cache curl
+
+# Set working directory
+WORKDIR /app
+
+# Copy everything
+COPY . .
+
+# Install backend dependencies
+RUN npm install --omit=dev
+
+# Install client dependencies and build
+WORKDIR /app/client
+RUN npm install && npm run build
+
+# Clean up client node_modules
+RUN rm -rf node_modules
+
+# Go back to root
+WORKDIR /app
+
+# Create upload directories
+RUN mkdir -p public/uploads/logos public/uploads/heroes public/uploads/about
+
+# Expose port
+EXPOSE 3000
+
+# Start the application
+CMD ["node", "server/index.js"]

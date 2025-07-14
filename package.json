@@ -1,0 +1,39 @@
+{
+  "name": "content-forge",
+  "version": "1.0.0",
+  "description": "Full-stack CMS with React and Node.js",
+  "main": "server/index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "nodemon server/index.js",
+    "client": "cd client && npm start",
+    "build": "cd client && npm run build",
+    "start": "node server/index.js",
+    "docker:build": "docker build -t content-forge .",
+    "docker:run": "docker run -p 3000:3000 content-forge",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@google-cloud/storage": "^7.16.0",
+    "ajv": "^6.12.6",
+    "ajv-keywords": "^3.5.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "multer": "^1.4.5-lts.1"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "nodemon": "^3.0.1"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "cms",
+    "react",
+    "node",
+    "docker"
+  ],
+  "author": "",
+  "license": "MIT"
+}

@@ -1,0 +1,150 @@
+{
+  "siteId": "site2",
+  "siteName": "Creative Agency",
+  "contact": {
+    "phone": "011-567-8901",
+    "email": "hello@creativeagency.com"
+  },
+  "navigation": {
+    "home": "Portfolio",
+    "qualify": "Services", 
+    "about": "About Us",
+    "contact": "Contact Us",
+    "complain": "Support"
+  },
+  "branding": {
+    "logo": "/uploads/logos/logo2.png",
+    "primaryColor": "#ff6b35",
+    "secondaryColor": "#e55a2b"
+  },
+  "hero": {
+    "title": "Design made simple.",
+    "subtitle": "Creative solutions. Flexible pricing. Trusted by hundreds to help you achieve your creative vision.",
+    "backgroundImage": "/uploads/heroes/hero2.jpg",
+    "buttonText": "Get Started",
+    "buttonLink": "#portfolio"
+  },
+  "howItWorks": {
+    "title": "Our Process",
+    "step1": {
+      "title": "Discover",
+      "description": "We start by understanding your brand, goals, and target audience."
+    },
+    "step2": {
+      "title": "Design",
+      "description": "Our creative team develops stunning visual concepts tailored to your needs."
+    },
+    "step3": {
+      "title": "Deliver",
+      "description": "We deliver polished, professional designs that exceed your expectations."
+    }
+  },
+  "testimonials": {
+    "title": "What Our Clients Say",
+    "subtitle": "See how we've helped businesses transform their brand with creative design solutions.",
+    "reviews": [
+      {
+        "rating": 5,
+        "text": "The creative team exceeded all our expectations. Our new brand identity has completely transformed how customers perceive our business. Highly recommended!",
+        "name": "Sarah Mitchell",
+        "title": "Marketing Director",
+        "image": ""
+      },
+      {
+        "rating": 5,
+        "text": "Professional, creative, and always on time. The website design they created for us has increased our online conversions by 40%. Amazing work!",
+        "name": "James Chen",
+        "title": "Business Owner",
+        "image": ""
+      },
+      {
+        "rating": 4.5,
+        "text": "Working with this agency was a game-changer for our startup. They understood our vision and brought it to life better than we imagined.",
+        "name": "Maria Rodriguez",
+        "title": "Startup Founder",
+        "image": ""
+      }
+    ]
+  },
+  "complaintsProcedure": {
+    "logo": "/uploads/general/creative-authority-logo.png",
+    "title": "Creative Services Complaints Procedure",
+    "step1": {
+      "title": "Contact Agency",
+      "item1": "Reach out to our project manager directly regarding your concern.",
+      "item2": "We will respond to your inquiry within 48 hours."
+    },
+    "step2": {
+      "title": "Escalate to Management",
+      "item1": "If unsatisfied with the initial response, escalate to our management team.",
+      "item2": "Please provide all relevant project documentation and correspondence."
+    },
+    "step3": {
+      "title": "External Resolution",
+      "description": "For unresolved issues, you may contact these external bodies:",
+      "address": "Creative Industry Association, 123 Design Street, Creative City, 45678",
+      "email": "disputes@creativeassociation.org",
+      "fax": "+1 555 123 4567"
+    }
+  },
+  "qualify": {
+    "title": "Service Requirements",
+    "subtitle": "To get started with our creative services, please have the following ready.",
+    "requirement1": {
+      "title": "Project brief and objectives",
+      "icon": ""
+    },
+    "requirement2": {
+      "title": "Brand guidelines or references",
+      "icon": ""
+    },
+    "requirement3": {
+      "title": "Content and imagery assets",
+      "icon": ""
+    },
+    "requirement4": {
+      "title": "Timeline and budget expectations",
+      "icon": ""
+    }
+  },
+  "whyChooseUs": {
+    "title": "Why Choose Our Agency?",
+    "benefit1": {
+      "title": "Creative Excellence",
+      "description": "Award-winning designs that capture attention and drive engagement.",
+      "icon": ""
+    },
+    "benefit2": {
+      "title": "Fast Turnaround",
+      "description": "Quick delivery without compromising on quality or creativity.",
+      "icon": ""
+    },
+    "benefit3": {
+      "title": "Collaborative Process",
+      "description": "We work closely with you to bring your vision to life.",
+      "icon": ""
+    }
+  },
+  "about": {
+    "title": "Our Creative Process",
+    "description": "Our team of talented designers and developers work together to create stunning visual experiences that captivate audiences and drive results. We believe in the power of great design to transform businesses.",
+    "image": "/uploads/about/about2.jpg"
+  },
+  "footer": {
+    "address": "456 Creative Boulevard, Design District, 67890",
+    "hours": "Mon-Fri: 10:00 AM - 6:00 PM",
+    "social": {
+      "title": "Follow Our Work",
+      "facebook": "",
+      "facebookIcon": "",
+      "twitter": "",
+      "twitterIcon": "",
+      "linkedin": "",
+      "linkedinIcon": "",
+      "instagram": "",
+      "instagramIcon": ""
+    },
+    "copyright": "© 2025 Creative Agency. All rights reserved."
+  },
+  "lastUpdated": "2025-07-09T12:00:00.000Z"
+}

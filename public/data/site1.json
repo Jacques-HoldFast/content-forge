@@ -1,0 +1,150 @@
+{
+  "siteId": "site1",
+  "siteName": "Tech Solutions",
+  "contact": {
+    "phone": "011-567-8901",
+    "email": "hello@creativeagency.com"
+  },
+  "navigation": {
+    "home": "Apply Now",
+    "qualify": "How To Qualify",
+    "about": "About Us",
+    "contact": "Contact Us",
+    "complain": "Complain Procedure"
+  },
+  "branding": {
+    "logo": "https://storage.googleapis.com/content-forge-uploads-eloquent-ratio-465214-r9/logos/1752227363797-163852588.png",
+    "primaryColor": "#d4515b",
+    "secondaryColor": "#b83e47"
+  },
+  "hero": {
+    "title": "Technology made simple.",
+    "subtitle": "Fast solutions. Flexible terms. Trusted by thousands to help you achieve your tech goals.",
+    "backgroundImage": "https://storage.googleapis.com/content-forge-uploads-eloquent-ratio-465214-r9/heroes/1752227378938-922490775.png",
+    "buttonText": "Apply Now",
+    "buttonLink": "#contact"
+  },
+  "howItWorks": {
+    "title": "How It Works",
+    "step1": {
+      "title": "Apply Online 1",
+      "description": "Complete our simple and secure online application form in minutes."
+    },
+    "step2": {
+      "title": "We Review 2",
+      "description": "Our team quickly reviews your application and provides a decision."
+    },
+    "step3": {
+      "title": "Get Funds 3",
+      "description": "Once approved, funds are quickly disbursed to your account."
+    }
+  },
+  "testimonials": {
+    "title": "What Our Customers Say",
+    "subtitle": "Hear from people who have transformed their financial situation with our services.",
+    "reviews": [
+      {
+        "rating": 5,
+        "text": "The application process was incredibly smooth. I received approval within hours and the funds were in my account the next day. Couldn't be happier with the service!",
+        "name": "Michael Thompson",
+        "title": "Personal Loan Customer",
+        "image": ""
+      },
+      {
+        "rating": 5,
+        "text": "As a first-time homebuyer, I was nervous about the mortgage process. The team guided me through every step and secured me a great rate. I'm now happily settled in my new home!",
+        "name": "Rebecca Johnson",
+        "title": "Home Loan Customer",
+        "image": ""
+      },
+      {
+        "rating": 4.5,
+        "text": "The business loan I received helped me expand my operations and hire two new employees. The flexible repayment terms have been perfect for managing my cash flow.",
+        "name": "David Williams",
+        "title": "Business Loan Customer",
+        "image": ""
+      }
+    ]
+  },
+  "complaintsProcedure": {
+    "logo": "https://storage.googleapis.com/content-forge-uploads-eloquent-ratio-465214-r9/logos/1752226234991-124153285.png",
+    "title": "Borrower's Complaints Procedure",
+    "step1": {
+      "title": "Lodge Complaint",
+      "item1": "Contact your microlender directly regarding your complaint.",
+      "item2": "The microlender must respond within 20 business days."
+    },
+    "step2": {
+      "title": "Escalate to NAMFISA",
+      "item1": "If unsatisfied with the response, escalate your complaint to NAMFISA.",
+      "item2": "Ensure you have written proof of your initial complaint."
+    },
+    "step3": {
+      "title": "Contact Channels",
+      "description": "Submit your complaint through any of these channels:",
+      "address": "51-55 Werner List Street, Gutenberg Plaza, Windhoek, Namibia",
+      "email": "complaints@namfisa.com.na",
+      "fax": "+264 61 290 5194"
+    }
+  },
+  "qualify": {
+    "title": "How to Qualify",
+    "subtitle": "In order to qualify, you will need to supply the following documentation.",
+    "requirement1": {
+      "title": "3 Month's bank statements",
+      "icon": "https://storage.googleapis.com/content-forge-uploads-eloquent-ratio-465214-r9/logos/1752226556039-770673398.png"
+    },
+    "requirement2": {
+      "title": "Photocopy of ID or passport",
+      "icon": "https://storage.googleapis.com/content-forge-uploads-eloquent-ratio-465214-r9/logos/1752226576086-526271111.png"
+    },
+    "requirement3": {
+      "title": "Be at least 21 Years or older",
+      "icon": "https://storage.googleapis.com/content-forge-uploads-eloquent-ratio-465214-r9/logos/1752226587251-688445801.png"
+    },
+    "requirement4": {
+      "title": "Your two latest payslips",
+      "icon": "https://storage.googleapis.com/content-forge-uploads-eloquent-ratio-465214-r9/logos/1752226597854-734244055.png"
+    }
+  },
+  "whyChooseUs": {
+    "title": "Why Choose Us?",
+    "benefit1": {
+      "title": "Fast Approval",
+      "description": "Quick and efficient application process with rapid decisions.",
+      "icon": "https://storage.googleapis.com/content-forge-uploads-eloquent-ratio-465214-r9/logos/1752226519424-150851064.png"
+    },
+    "benefit2": {
+      "title": "Flexible Terms",
+      "description": "Loan options tailored to fit your unique financial situation.",
+      "icon": "https://storage.googleapis.com/content-forge-uploads-eloquent-ratio-465214-r9/logos/1752226529305-549779977.png"
+    },
+    "benefit3": {
+      "title": "Easy Online Process",
+      "description": "Apply from anywhere, anytime, with our user-friendly online platform.",
+      "icon": "https://storage.googleapis.com/content-forge-uploads-eloquent-ratio-465214-r9/logos/1752226538726-308284508.png"
+    }
+  },
+  "about": {
+    "title": "About Us",
+    "description": "We are a leading technology company specializing in innovative solutions that help businesses thrive in the digital age. Our team of experts is dedicated to delivering exceptional results.",
+    "image": "/uploads/about/about1.jpg"
+  },
+  "lastUpdated": "2025-07-11T11:50:28.260Z",
+  "footer": {
+    "address": "123 Finance Street, Capital City, 12345",
+    "hours": "Mon-Fri: 9:00 AM - 5:00 PM",
+    "social": {
+      "title": "Connect With Us",
+      "facebook": "https://facebook.com/yourpage",
+      "facebookIcon": "",
+      "twitter": "https://twitter.com/yourhandle",
+      "twitterIcon": "",
+      "linkedin": "https://linkedin.com/company/yourcompany",
+      "linkedinIcon": "",
+      "instagram": "https://instagram.com/yourhandle",
+      "instagramIcon": ""
+    },
+    "copyright": "© 2025 SkyLexfin Group. All rights reserved."
+  }
+}

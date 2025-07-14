@@ -1,0 +1,2278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading...</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Top Contact Bar */
+        .top-bar {
+            background: #666;
+            color: white;
+            padding: 8px 0;
+            font-size: 14px;
+        }
+
+        .top-bar-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 30px;
+        }
+
+        .contact-info span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+
+        /* Main Navigation */
+        .nav {
+            background: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            margin-bottom: 50px;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .nav-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .logo {
+            height: 45px;
+        }
+
+        .main-nav {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .main-nav a:hover {
+            color: var(--primary-color, #d4515b);
+        }
+
+        .main-nav a.active {
+            color: var(--primary-color, #d4515b);
+        }
+
+        .main-nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--primary-color, #d4515b);
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .btn-login {
+            background: var(--primary-color, #d4515b);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        .btn-login:hover {
+            background: var(--secondary-color, #b83e47);
+        }
+
+        .btn-account {
+            border: 1px solid var(--primary-color, #d4515b);
+            color: var(--primary-color, #d4515b);
+            padding: 9px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-account:hover {
+            background: var(--primary-color, #d4515b);
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--primary-color, #d4515b);
+            color: white;
+            height: 460px;
+            text-align: left;
+            width: 1200px;
+            max-width: 90%;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            align-items: center;
+            height: 100%;
+        }
+
+        .hero-text {
+            padding: 40px 60px;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 300;
+            margin-bottom: 25px;
+            line-height: 1.2;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            background: white;
+            color: var(--primary-color, #d4515b);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-image {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            margin: 0;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 460px;
+            object-fit: cover;
+            border-radius: 0;
+        }
+
+        .hero-image-placeholder {
+            width: 100%;
+            height: 460px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px dashed rgba(255, 255, 255, 0.3);
+            border-radius: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* How It Works Section */
+        .how-it-works {
+            padding: 80px 20px;
+            background: #f8f9fa;
+        }
+
+        .how-it-works-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .how-it-works h2 {
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            color: #666;
+            font-weight: 400;
+        }
+
+        .steps-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .step {
+            flex: 1;
+            min-width: 250px;
+            position: relative;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: var(--primary-color, #d4515b);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            margin: 0 auto 20px;
+        }
+
+        .step-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .step-description {
+            color: #888;
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+
+        .step-arrow {
+            position: absolute;
+            top: 40px;
+            right: -30px;
+            font-size: 2rem;
+            color: var(--primary-color, #d4515b);
+            z-index: 1;
+        }
+
+        .step:last-child .step-arrow {
+            display: none;
+        }
+
+        /* Loan Estimator Section */
+        .loan-estimator {
+            padding: 80px 20px;
+            background: white;
+        }
+
+        .loan-estimator-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .loan-estimator h2 {
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            color: #666;
+            font-weight: 400;
+        }
+
+        .loan-amount-section {
+            margin-bottom: 50px;
+        }
+
+        .loan-amount-label {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .loan-amount-display {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-color, #d4515b);
+            margin-bottom: 30px;
+        }
+
+        .slider-container {
+            position: relative;
+            width: 100%;
+            margin: 20px 0;
+            z-index: 1;
+        }
+
+        .loan-slider {
+            width: 100%;
+            height: 6px;
+            border-radius: 3px;
+            background: #ddd;
+            outline: none;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
+        .loan-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 30px;
+            height: 30px;
+            background: white;
+            cursor: pointer;
+            border: 2px solid #ddd;
+            border-radius: 50%;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+            transform: none;
+            z-index: 10;
+            background-image: url('data:image/svg+xml;utf8,<svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.7692 1.69223C13.7692 1.69223 20.6923 7.81085 20.6923 9.99992C20.6923 12.189 13.7692 18.3076 13.7692 18.3076M8.23074 1.69223C8.23074 1.69223 1.30766 7.81085 1.30766 9.99992C1.30766 12.189 8.23074 18.3076 8.23074 18.3076" stroke="%23CA2128" stroke-width="2.07692" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 18px 16px;
+        }
+
+        .loan-slider::-moz-range-thumb {
+            width: 30px;
+            height: 30px;
+            background: white;
+            cursor: pointer;
+            border: 2px solid #ddd;
+            border-radius: 50%;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            -moz-appearance: none;
+            transform: none;
+            position: relative;
+            z-index: 10;
+            background-image: url('data:image/svg+xml;utf8,<svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.7692 1.69223C13.7692 1.69223 20.6923 7.81085 20.6923 9.99992C20.6923 12.189 13.7692 18.3076 13.7692 18.3076M8.23074 1.69223C8.23074 1.69223 1.30766 7.81085 1.30766 9.99992C1.30766 12.189 8.23074 18.3076 8.23074 18.3076" stroke="%23CA2128" stroke-width="2.07692" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 18px 16px;
+        }
+
+        .slider-track {
+            position: absolute;
+            top: 58%;
+            left: 0;
+            height: 6px;
+            background: var(--primary-color, #d4515b);
+            border-radius: 3px;
+            transform: translateY(-50%);
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .slider-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px 0;
+        }
+
+        .slider-btn {
+            width: 30px;
+            height: 30px;
+            border: 2px solid #ddd;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: #666;
+            transition: all 0.3s;
+        }
+
+        .slider-btn:hover {
+            border-color: var(--primary-color, #d4515b);
+            color: var(--primary-color, #d4515b);
+        }
+
+        .loan-term-section {
+            margin-top: 40px;
+        }
+
+        .loan-term-label {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .loan-term-select {
+            width: 100%;
+            max-width: 300px;
+            padding: 12px 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            background: white;
+            color: #666;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .loan-term-select:focus {
+            border-color: var(--primary-color, #d4515b);
+        }
+
+        /* Pricing Section */
+        .pricing-section {
+            padding: 80px 20px;
+            background: var(--primary-color, #d4515b);
+            color: white;
+            text-align: center;
+            width: 1200px;
+            max-width: 90%;
+            margin: 0 auto;
+        }
+
+        .pricing-content {
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .pricing-options {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .pricing-option {
+            min-width: 200px;
+            text-align: center;
+        }
+
+        .pricing-circle {
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color, #d4515b);
+        }
+
+        .pricing-label {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .pricing-amount {
+            background: white;
+            color: var(--primary-color, #d4515b);
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            display: inline-block;
+            min-width: 120px;
+        }
+
+        .pricing-disclaimer {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin: 30px 0;
+            font-style: italic;
+        }
+
+        .pricing-cta {
+            margin: 40px 0 30px;
+        }
+
+        .pricing-apply-btn {
+            background: white;
+            color: var(--primary-color, #d4515b);
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .pricing-apply-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .pricing-chat {
+            margin-top: 20px;
+        }
+
+        .pricing-chat-text {
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+
+        .pricing-chat-link {
+            color: white;
+            text-decoration: underline;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .pricing-chat-link:hover {
+            text-decoration: none;
+        }
+
+        /* How to Qualify Section */
+        .qualify-section {
+            padding: 80px 20px;
+            background: #f8f9fa;
+            text-align: center;
+        }
+
+        .qualify-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .qualify-section h2 {
+            font-size: 2.5rem;
+            color: #666;
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+
+        .qualify-subtitle {
+            font-size: 1.1rem;
+            color: #888;
+            margin-bottom: 60px;
+            line-height: 1.6;
+        }
+
+        .qualify-cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .qualify-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            text-align: center;
+        }
+
+        .qualify-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .qualify-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-color, #d4515b);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 1.5rem;
+            color: white;
+            padding: 15px;
+        }
+
+        .qualify-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+        }
+
+        .qualify-card-title {
+            font-size: 1rem;
+            color: #666;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        /* Why Choose Us Section */
+        .why-choose-us {
+            padding: 80px 20px;
+            background: white;
+            text-align: center;
+        }
+
+        .why-choose-us-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .why-choose-us h2 {
+            font-size: 2.5rem;
+            color: #666;
+            font-weight: 400;
+            margin-bottom: 80px;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .benefit-card {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .benefit-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--primary-color, #d4515b);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .benefit-title {
+            font-size: 1.3rem;
+            color: #666;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .benefit-description {
+            font-size: 1rem;
+            color: #888;
+            line-height: 1.6;
+        }
+
+        /* Contact Call Center Section */
+        .contact-call-center {
+            padding: 80px 20px;
+            background: #666;
+            color: white;
+            text-align: center;
+        }
+
+        .contact-call-center-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-call-center h2 {
+            font-size: 2.5rem;
+            font-weight: 400;
+            margin-bottom: 30px;
+        }
+
+        .contact-call-center-description {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .contact-phone {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 40px;
+            color: white;
+        }
+
+        .contact-complain-btn {
+            background: white;
+            color: var(--primary-color, #d4515b);
+            padding: 15px 35px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .contact-complain-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Complaints Procedure Section */
+        .complaints-procedure {
+            padding: 80px 20px;
+            background: #f8f9fa;
+            text-align: center;
+        }
+
+        .complaints-procedure-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .complaints-logo {
+            margin-bottom: 40px;
+        }
+
+        .complaints-logo img {
+            max-height: 100px;
+            width: auto;
+        }
+
+        .complaints-procedure h2 {
+            font-size: 2.5rem;
+            color: #333;
+            font-weight: 600;
+            margin-bottom: 60px;
+        }
+
+        .complaints-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .complaints-step {
+            background: white;
+            padding: 40px 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            text-align: center;
+        }
+
+        .complaints-step-number {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color, #d4515b);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 25px;
+        }
+
+        .complaints-step-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 25px;
+        }
+
+        .complaints-step-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .complaints-step-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .complaints-step-icon {
+            width: 24px;
+            height: 24px;
+            background: var(--primary-color, #d4515b);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .complaints-step-text {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #666;
+        }
+
+        .complaints-contact-info {
+            margin-top: 20px;
+        }
+
+        .complaints-contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            color: #666;
+            text-align: left;
+        }
+
+        .complaints-contact-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .complaints-contact-icon {
+            width: 20px;
+            height: 20px;
+            background: var(--primary-color, #d4515b);
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        .complaints-contact-label {
+            font-weight: 600;
+            color: #333;
+            margin-right: 5px;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 80px 20px;
+            background: #f8f9fa;
+            text-align: center;
+        }
+
+        .testimonials-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonials h2 {
+            font-size: 2.5rem;
+            color: #333;
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+
+        .testimonials-subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 60px;
+            line-height: 1.6;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            position: relative;
+        }
+
+        .testimonial-stars {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 20px;
+        }
+
+        .star {
+            color: var(--primary-color, #d4515b);
+            font-size: 1.2rem;
+        }
+
+        .star.half {
+            position: relative;
+            color: #ddd;
+        }
+
+        .star.half::before {
+            content: "★";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 50%;
+            overflow: hidden;
+            color: var(--primary-color, #d4515b);
+        }
+
+        .testimonial-text {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #666;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #666;
+            flex-shrink: 0;
+        }
+
+        .testimonial-avatar img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .testimonial-author-info {
+            text-align: left;
+        }
+
+        .testimonial-author-name {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 3px;
+        }
+
+        .testimonial-author-title {
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        /* Footer Section */
+        .footer {
+            padding: 60px 20px 40px;
+            background: #f8f9fa;
+            border-top: 1px solid #e9ecef;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .footer-brand {
+            grid-column: 1;
+        }
+
+        .footer-brand .logo {
+            height: 40px;
+            margin-bottom: 25px;
+        }
+
+        .footer-contact-info {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-contact-info li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .footer-contact-info li:last-child {
+            margin-bottom: 0;
+        }
+
+        .footer-contact-icon {
+            width: 16px;
+            height: 16px;
+            color: var(--primary-color, #d4515b);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .footer-contact-icon svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+            stroke: currentColor;
+        }
+
+        /* Login Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .login-modal {
+            background: white;
+            border-radius: 12px;
+            padding: 40px 32px;
+            width: 90%;
+            max-width: 400px;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #333;
+            margin: 0;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #999;
+            cursor: pointer;
+            padding: 0;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-close:hover {
+            color: #333;
+        }
+
+        .form-group-modal {
+            margin-bottom: 20px;
+        }
+
+        .form-group-modal label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #333;
+            font-size: 0.9rem;
+        }
+
+        .form-group-modal input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            background: #f8f9fa;
+            transition: border-color 0.3s, background 0.3s;
+        }
+
+        .form-group-modal input:focus {
+            outline: none;
+            border-color: var(--primary-color, #d4515b);
+            background: white;
+        }
+
+        .form-group-modal input::placeholder {
+            color: #999;
+        }
+
+        .form-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            font-size: 0.9rem;
+        }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #666;
+        }
+
+        .remember-me input[type="checkbox"] {
+            width: auto;
+            margin: 0;
+        }
+
+        .forgot-password {
+            color: var(--primary-color, #d4515b);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .forgot-password:hover {
+            text-decoration: underline;
+        }
+
+        .login-button {
+            width: 100%;
+            background: var(--primary-color, #d4515b);
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-bottom: 20px;
+        }
+
+        .login-button:hover {
+            background: var(--secondary-color, #b83e47);
+        }
+
+        .signup-link {
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .signup-link a {
+            color: var(--primary-color, #d4515b);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .signup-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* Sign Up Modal Styles */
+        .signup-modal {
+            background: white;
+            border-radius: 12px;
+            padding: 40px 32px;
+            width: 90%;
+            max-width: 400px;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .signup-modal .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .signup-modal .modal-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #333;
+            margin: 0;
+        }
+
+        .terms-checkbox {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 12px;
+            margin-bottom: 25px;
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.4;
+            align-items: flex-start;
+        }
+
+        .terms-checkbox input[type="checkbox"] {
+            width: auto;
+            margin: 0;
+            margin-top: 2px;
+        }
+
+        .terms-checkbox a {
+            color: var(--primary-color, #d4515b);
+            text-decoration: none;
+        }
+
+        .terms-checkbox a:hover {
+            text-decoration: underline;
+        }
+
+        .signin-link {
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .signin-link a {
+            color: var(--primary-color, #d4515b);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .signin-link a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-column {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-column h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-column ul li:last-child {
+            margin-bottom: 0;
+        }
+
+        .footer-column ul li a {
+            color: #666;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--primary-color, #d4515b);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .footer-social a {
+            width: 35px;
+            height: 35px;
+            background: #666;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+
+        .footer-social a:hover {
+            background: var(--primary-color, #d4515b);
+        }
+
+        .footer-bottom {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e9ecef;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 50px;
+            font-size: 18px;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .top-bar-content {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .nav-top {
+                flex-direction: column;
+                gap: 15px;
+                margin-bottom: 20px;
+            }
+
+            .main-nav {
+                gap: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .auth-buttons {
+                gap: 10px;
+            }
+
+            .hero {
+                height: auto;
+                width: 100%;
+                margin: 0;
+                padding: 20px;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 20px;
+                height: auto;
+            }
+
+            .hero-text {
+                padding: 20px;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-image {
+                height: auto;
+                width: 100%;
+            }
+
+            .hero-image img {
+                height: auto;
+                width: 100%;
+                max-width: none;
+            }
+
+            .hero-image-placeholder {
+                height: 250px;
+                width: 100%;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                text-align: center;
+            }
+
+            .footer-brand {
+                grid-column: 1;
+            }
+
+            .footer-social {
+                justify-content: center;
+            }
+
+            .steps-container {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .step-arrow {
+                display: none;
+            }
+
+            .how-it-works h2 {
+                font-size: 2rem;
+            }
+
+            .loan-estimator h2 {
+                font-size: 2rem;
+            }
+
+            .loan-estimator-content {
+                max-width: 100%;
+                padding: 0 10px;
+            }
+
+            .pricing-options {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .pricing-option {
+                min-width: auto;
+            }
+
+            .pricing-content {
+                padding: 0 10px;
+            }
+
+            .qualify-section h2 {
+                font-size: 2rem;
+            }
+
+            .qualify-cards {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+
+            .qualify-card {
+                padding: 25px 15px;
+            }
+
+            .why-choose-us h2 {
+                font-size: 2rem;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .contact-call-center h2 {
+                font-size: 2rem;
+            }
+
+            .contact-call-center-content {
+                padding: 0 10px;
+            }
+
+            .contact-phone {
+                font-size: 1.3rem;
+            }
+
+            .testimonials h2 {
+                font-size: 2rem;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .testimonial-card {
+                padding: 25px;
+            }
+
+            .complaints-procedure h2 {
+                font-size: 2rem;
+            }
+
+            .complaints-steps {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .complaints-step {
+                padding: 30px 20px;
+            }
+
+            .complaints-logo img {
+                max-height: 80px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .qualify-cards {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="loading">Loading site content...</div>
+
+    <script>
+        // Get site ID from URL
+        const pathParts = window.location.pathname.split('/');
+        const siteId = pathParts[pathParts.length - 1] || pathParts[pathParts.length - 2];
+
+        // Load site content
+        fetch(`/api/sites/${siteId}`)
+            .then(response => response.json())
+            .then(data => {
+                document.title = data.siteName;
+
+                // Build the page
+                document.body.innerHTML = `
+                    <!-- Top Contact Bar -->
+                    <div class="top-bar">
+                        <div class="top-bar-content">
+                            <div class="contact-info">
+                                <span>📞 ${data.contact?.phone || '011-234-5678'}</span>
+                                <span>✉️ ${data.contact?.email || 'info@' + data.siteName.toLowerCase().replace(/\s+/g, '') + '.com'}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Main Navigation -->
+                    <nav class="nav">
+                        <div class="nav-content">
+                            <div class="nav-top">
+                                <img src="${data.branding.logo}" alt="${data.siteName}" class="logo">
+                                
+                                <div class="auth-buttons">
+                                    <a href="javascript:void(0)" class="btn-login" onclick="openLoginModal()">Login</a>
+                                    <a href="#account" class="btn-account">
+                                        👤 MY ACCOUNT
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <ul class="main-nav">
+                                <li><a href="#home" class="active">${data.navigation?.home || 'Apply Now'}</a></li>
+                                <li><a href="#qualify">${data.navigation?.qualify || 'How To Qualify'}</a></li>
+                                <li><a href="#about">${data.navigation?.about || 'About Us'}</a></li>
+                                <li><a href="#contact">${data.navigation?.contact || 'Contact Us'}</a></li>
+                                <li><a href="#complain">${data.navigation?.complain || 'Complain Procedure'}</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                    
+                    <!-- Hero Section -->
+                    <section class="hero">
+                        <div class="hero-content">
+                            <div class="hero-text">
+                                <h1>${data.hero.title}</h1>
+                                <p>${data.hero.subtitle}</p>
+                                <a href="${data.hero.buttonLink}" class="btn">${data.hero.buttonText}</a>
+                            </div>
+                            <div class="hero-image">
+                                ${data.hero.backgroundImage ?
+                        `<img src="${data.hero.backgroundImage}" alt="Hero Image">` :
+                        `<div class="hero-image-placeholder">🖼️</div>`
+                    }
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- How It Works Section -->
+                    <section class="how-it-works">
+                        <div class="how-it-works-content">
+                            <h2>${data.howItWorks?.title || 'How It Works'}</h2>
+                            <div class="steps-container">
+                                <div class="step">
+                                    <div class="step-number">1</div>
+                                    <div class="step-title">${data.howItWorks?.step1?.title || 'Apply Online'}</div>
+                                    <div class="step-description">${data.howItWorks?.step1?.description || 'Complete our simple and secure online application form in minutes.'}</div>
+                                    <div class="step-arrow">→</div>
+                                </div>
+                                <div class="step">
+                                    <div class="step-number">2</div>
+                                    <div class="step-title">${data.howItWorks?.step2?.title || 'We Review'}</div>
+                                    <div class="step-description">${data.howItWorks?.step2?.description || 'Our team quickly reviews your application and provides a decision.'}</div>
+                                    <div class="step-arrow">→</div>
+                                </div>
+                                <div class="step">
+                                    <div class="step-number">3</div>
+                                    <div class="step-title">${data.howItWorks?.step3?.title || 'Get Funds'}</div>
+                                    <div class="step-description">${data.howItWorks?.step3?.description || 'Once approved, funds are quickly disbursed to your account.'}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- Loan Estimator Section -->
+                    <section class="loan-estimator">
+                        <div class="loan-estimator-content">
+                            <h2>${data.loanEstimator?.title || 'Estimate Your Loan'}</h2>
+                            
+                            <div class="loan-amount-section">
+                                <div class="loan-amount-label">Loan Amount:</div>
+                                <div class="loan-amount-display" id="loanAmountDisplay">R 10,000</div>
+                                
+                                <div class="slider-controls">
+                                    <button class="slider-btn" onclick="decreaseLoan()">-</button>
+                                    <div class="slider-container">
+                                        <input type="range" class="loan-slider" id="loanSlider" 
+                                               min="1000" max="100000" value="10000" step="1000"
+                                               oninput="updateLoanAmount()">
+                                        <div class="slider-track" id="sliderTrack"></div>
+                                    </div>
+                                    <button class="slider-btn" onclick="increaseLoan()">+</button>
+                                </div>
+                            </div>
+                            
+                            <div class="loan-term-section">
+                                <div class="loan-term-label">Loan Term:</div>
+                                <select class="loan-term-select" id="loanTerm">
+                                    <option value="6">6 Months</option>
+                                    <option value="12" selected>12 Months</option>
+                                    <option value="18">18 Months</option>
+                                    <option value="24">24 Months</option>
+                                    <option value="36">36 Months</option>
+                                </select>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- Pricing Section -->
+                    <section class="pricing-section">
+                        <div class="pricing-content">
+                            <div class="pricing-options">
+                                <div class="pricing-option">
+                                    <div class="pricing-circle">1</div>
+                                    <div class="pricing-label">Month (Quick Cash)</div>
+                                    <div class="pricing-amount">N$7800</div>
+                                </div>
+                                <div class="pricing-option">
+                                    <div class="pricing-circle">3</div>
+                                    <div class="pricing-label">Months</div>
+                                    <div class="pricing-amount">N$2600</div>
+                                </div>
+                                <div class="pricing-option">
+                                    <div class="pricing-circle">5</div>
+                                    <div class="pricing-label">Months</div>
+                                    <div class="pricing-amount">N$1560</div>
+                                </div>
+                            </div>
+                            
+                            <div class="pricing-disclaimer">
+                                *This is an estimate and may vary based on your credit profile.
+                            </div>
+                            
+                            <div class="pricing-cta">
+                                <a href="${data.hero.buttonLink}" class="pricing-apply-btn">Apply Now</a>
+                            </div>
+                            
+                            <div class="pricing-chat">
+                                <div class="pricing-chat-text">Prefer To Chat To One Of Our Helpful Agents?</div>
+                                <a href="#chat" class="pricing-chat-link">Chat now</a>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- How to Qualify Section -->
+                    <section class="qualify-section">
+                        <div class="qualify-content">
+                            <h2>${data.qualify?.title || 'How to Qualify'}</h2>
+                            <p class="qualify-subtitle">${data.qualify?.subtitle || 'In order to qualify, you will need to supply the following documentation.'}</p>
+                            
+                            <div class="qualify-cards">
+                                <div class="qualify-card">
+                                    <div class="qualify-icon">
+                                    ${data.qualify?.requirement1?.icon ? `<img src="${data.qualify.requirement1.icon}" alt="Bank Statements">` : '📄'}
+                                </div>
+                                    <div class="qualify-card-title">${data.qualify?.requirement1?.title || '3 Month\'s bank statements'}</div>
+                                </div>
+                                <div class="qualify-card">
+                                    <div class="qualify-icon">
+                                        ${data.qualify?.requirement2?.icon ? `<img src="${data.qualify.requirement2.icon}" alt="ID Document">` : '🆔'}
+                                    </div>
+                                    <div class="qualify-card-title">${data.qualify?.requirement2?.title || 'Photocopy of ID or passport'}</div>
+                                </div>
+                                <div class="qualify-card">
+                                    <div class="qualify-icon">
+                                        ${data.qualify?.requirement3?.icon ? `<img src="${data.qualify.requirement3.icon}" alt="Age Requirement">` : '🎂'}
+                                    </div>
+                                    <div class="qualify-card-title">${data.qualify?.requirement3?.title || 'Be at least 21 Years or older'}</div>
+                                </div>
+                                <div class="qualify-card">
+                                    <div class="qualify-icon">
+                                        ${data.qualify?.requirement4?.icon ? `<img src="${data.qualify.requirement4.icon}" alt="Payslips">` : '💰'}
+                                    </div>
+                                    <div class="qualify-card-title">${data.qualify?.requirement4?.title || 'Your two latest payslips'}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- Why Choose Us Section -->
+                    <section class="why-choose-us">
+                        <div class="why-choose-us-content">
+                            <h2>${data.whyChooseUs?.title || 'Why Choose Us?'}</h2>
+                            
+                            <div class="benefits-grid">
+                                <div class="benefit-card">
+                                    <div class="benefit-icon">${data.whyChooseUs?.benefit1?.icon ? `<img src="${data.whyChooseUs.benefit1.icon}" alt="Benefit 1 Icon" style="width: 40px; height: 40px; filter: brightness(0) invert(1);">` : '⏰'}</div>
+                                    <div class="benefit-title">${data.whyChooseUs?.benefit1?.title || 'Fast Approval'}</div>
+                                    <div class="benefit-description">${data.whyChooseUs?.benefit1?.description || 'Quick and efficient application process with rapid decisions.'}</div>
+                                </div>
+                                <div class="benefit-card">
+                                    <div class="benefit-icon">${data.whyChooseUs?.benefit2?.icon ? `<img src="${data.whyChooseUs.benefit2.icon}" alt="Benefit 2 Icon" style="width: 40px; height: 40px; filter: brightness(0) invert(1);">` : '💰'}</div>
+                                    <div class="benefit-title">${data.whyChooseUs?.benefit2?.title || 'Flexible Terms'}</div>
+                                    <div class="benefit-description">${data.whyChooseUs?.benefit2?.description || 'Loan options tailored to fit your unique financial situation.'}</div>
+                                </div>
+                                <div class="benefit-card">
+                                    <div class="benefit-icon">${data.whyChooseUs?.benefit3?.icon ? `<img src="${data.whyChooseUs.benefit3.icon}" alt="Benefit 3 Icon" style="width: 40px; height: 40px; filter: brightness(0) invert(1);">` : '🌐'}</div>
+                                    <div class="benefit-title">${data.whyChooseUs?.benefit3?.title || 'Easy Online Process'}</div>
+                                    <div class="benefit-description">${data.whyChooseUs?.benefit3?.description || 'Apply from anywhere, anytime, with our user-friendly online platform.'}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- Contact Call Center Section -->
+                    <section class="contact-call-center">
+                        <div class="contact-call-center-content">
+                            <h2>${data.contactCallCenter?.title || 'Contact Our Call Center'}</h2>
+                            <p class="contact-call-center-description">${data.contactCallCenter?.description || 'Our knowledgeable agents are ready to assist you with an application or any questions you might have.'}</p>
+                            <div class="contact-phone">${data.contactCallCenter?.phone || '+264 (61) 426 000'}</div>
+                            <a href="${data.contactCallCenter?.complainLink || '#complain'}" class="contact-complain-btn">${data.contactCallCenter?.complainText || 'Complain procedure'}</a>
+                        </div>
+                    </section>
+                    
+                    <!-- Testimonials Section -->
+                    <section class="testimonials">
+                        <div class="testimonials-content">
+                            <h2>${data.testimonials?.title || 'What Our Customers Say'}</h2>
+                            <p class="testimonials-subtitle">${data.testimonials?.subtitle || 'Hear from people who have transformed their financial situation with our services.'}</p>
+                            
+                            <div class="testimonials-grid">
+                                ${(data.testimonials?.reviews || [
+                        {
+                            rating: 5,
+                            text: "The application process was incredibly smooth. I received approval within hours and the funds were in my account the next day. Couldn't be happier with the service!",
+                            name: "Michael Thompson",
+                            title: "Personal Loan Customer",
+                            image: null
+                        },
+                        {
+                            rating: 5,
+                            text: "As a first-time homebuyer, I was nervous about the mortgage process. The team guided me through every step and secured me a great rate. I'm now happily settled in my new home!",
+                            name: "Rebecca Johnson",
+                            title: "Home Loan Customer",
+                            image: null
+                        },
+                        {
+                            rating: 4.5,
+                            text: "The business loan I received helped me expand my operations and hire two new employees. The flexible repayment terms have been perfect for managing my cash flow.",
+                            name: "David Williams",
+                            title: "Business Loan Customer",
+                            image: null
+                        }
+                    ]).map(review => {
+                        const fullStars = Math.floor(review.rating);
+                        const hasHalfStar = review.rating % 1 !== 0;
+
+                        let starsHtml = '';
+                        for (let i = 0; i < fullStars; i++) {
+                            starsHtml += '<span class="star">★</span>';
+                        }
+                        if (hasHalfStar) {
+                            starsHtml += '<span class="star half">★</span>';
+                        }
+                        for (let i = fullStars + (hasHalfStar ? 1 : 0); i < 5; i++) {
+                            starsHtml += '<span class="star" style="color: #ddd;">★</span>';
+                        }
+
+                        return `
+                                        <div class="testimonial-card">
+                                            <div class="testimonial-stars">
+                                                ${starsHtml}
+                                            </div>
+                                            <div class="testimonial-text">"${review.text}"</div>
+                                            <div class="testimonial-author">
+                                                <div class="testimonial-avatar">
+                                                    ${review.image ? `<img src="${review.image}" alt="${review.name}">` : '👤'}
+                                                </div>
+                                                <div class="testimonial-author-info">
+                                                    <div class="testimonial-author-name">${review.name}</div>
+                                                    <div class="testimonial-author-title">${review.title}</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    `;
+                    }).join('')}
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- Complaints Procedure Section -->
+                    <section class="complaints-procedure">
+                        <div class="complaints-procedure-content">
+                            ${data.complaintsProcedure?.logo ? `
+                            <div class="complaints-logo">
+                                <img src="${data.complaintsProcedure.logo}" alt="Regulatory Authority Logo">
+                            </div>` : ''}
+                            
+                            <h2>${data.complaintsProcedure?.title || "Borrower's Complaints Procedure"}</h2>
+                            
+                            <div class="complaints-steps">
+                                <div class="complaints-step">
+                                    <div class="complaints-step-number">1</div>
+                                    <div class="complaints-step-title">${data.complaintsProcedure?.step1?.title || 'Lodge Complaint'}</div>
+                                    
+                                    <div class="complaints-step-item">
+                                        <div class="complaints-step-icon">📞</div>
+                                        <div class="complaints-step-text">${data.complaintsProcedure?.step1?.item1 || 'Contact your microlender directly regarding your complaint.'}</div>
+                                    </div>
+                                    
+                                    <div class="complaints-step-item">
+                                        <div class="complaints-step-icon">⏰</div>
+                                        <div class="complaints-step-text">${data.complaintsProcedure?.step1?.item2 || 'The microlender must respond within 20 business days.'}</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="complaints-step">
+                                    <div class="complaints-step-number">2</div>
+                                    <div class="complaints-step-title">${data.complaintsProcedure?.step2?.title || 'Escalate to NAMFISA'}</div>
+                                    
+                                    <div class="complaints-step-item">
+                                        <div class="complaints-step-icon">📋</div>
+                                        <div class="complaints-step-text">${data.complaintsProcedure?.step2?.item1 || 'If unsatisfied with the response, escalate your complaint to NAMFISA.'}</div>
+                                    </div>
+                                    
+                                    <div class="complaints-step-item">
+                                        <div class="complaints-step-icon">📝</div>
+                                        <div class="complaints-step-text">${data.complaintsProcedure?.step2?.item2 || 'Ensure you have written proof of your initial complaint.'}</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="complaints-step">
+                                    <div class="complaints-step-number">3</div>
+                                    <div class="complaints-step-title">${data.complaintsProcedure?.step3?.title || 'Contact Channels'}</div>
+                                    
+                                    <div class="complaints-step-text" style="margin-bottom: 20px;">${data.complaintsProcedure?.step3?.description || 'Submit your complaint through any of these channels:'}</div>
+                                    
+                                    <div class="complaints-contact-info">
+                                        <div class="complaints-contact-item">
+                                            <div class="complaints-contact-icon">📍</div>
+                                            <div>
+                                                <span class="complaints-contact-label">Visit Us</span>
+                                                <div>${data.complaintsProcedure?.step3?.address || '51-55 Werner List Street, Gutenberg Plaza, Windhoek, Namibia'}</div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="complaints-contact-item">
+                                            <div class="complaints-contact-icon">✉️</div>
+                                            <div>
+                                                <span class="complaints-contact-label">Email Us</span>
+                                                <div>${data.complaintsProcedure?.step3?.email || 'complaints@namfisa.com.na'}</div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="complaints-contact-item">
+                                            <div class="complaints-contact-icon">📠</div>
+                                            <div>
+                                                <span class="complaints-contact-label">Fax Us</span>
+                                                <div>${data.complaintsProcedure?.step3?.fax || '+264 61 290 5194'}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- Footer Section -->
+                    <footer class="footer">
+                        <div class="footer-content">
+                            <div class="footer-brand">
+                                <img src="${data.branding.logo}" alt="${data.siteName}" class="logo">
+                                <ul class="footer-contact-info">
+                                    <li>
+                                        <span class="footer-contact-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 8.667A1.333 1.333 0 1 0 8 6a1.333 1.333 0 0 0 0 2.667z" fill="currentColor"/><path d="M8 1.333C5.067 1.333 2.667 3.733 2.667 6.667c0 4 5.333 8 5.333 8s5.333-4 5.333-8c0-2.934-2.4-5.334-5.333-5.334z" stroke="currentColor" stroke-width="1.333" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                                        ${data.footer?.address || '123 Finance Street, Capital City, 12345'}
+                                    </li>
+                                    <li>
+                                        <span class="footer-contact-icon">
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12.113 10.28c-.48-.48-1.2-.6-1.786-.32l-.654.31a9.667 9.667 0 0 1-4.27-4.27l.31-.654c.28-.586.16-1.306-.32-1.786L4.026 2.72c-.453-.453-1.2-.48-1.66-.06l-.54.48c-.32.28-.5.693-.5 1.12 0 5.473 4.44 9.913 9.913 9.913.426 0 .84-.18 1.12-.5l.48-.54c.42-.46.393-1.207-.06-1.66l-1.666-1.666z" stroke="currentColor" stroke-width="1.333" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</span>
+                                        ${data.contact?.phone || '+44 (0) 20 1234 5678'}
+                                    </li>
+                                    <li>
+                                        <span class="footer-contact-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.667 2.667h10.667c.733 0 1.333.6 1.333 1.333v8c0 .733-.6 1.333-1.333 1.333H2.667C1.933 13.333 1.333 12.733 1.333 12V4c0-.733.6-1.333 1.333-1.333z" stroke="currentColor" stroke-width="1.333" stroke-linecap="round" stroke-linejoin="round"/><path d="M14.667 4L8 8.667 1.333 4" stroke="currentColor" stroke-width="1.333" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                                        ${data.contact?.email || 'info@skygroup.com'}
+                                    </li>
+                                    <li>
+                                        <span class="footer-contact-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="6.667" stroke="currentColor" stroke-width="1.333" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 4v4l2.667 2.667" stroke="currentColor" stroke-width="1.333" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                                        ${data.footer?.hours || 'Mon-Fri: 9:00 AM - 5:00 PM'}
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="footer-column">
+                                <h3>${data.footer?.quickLinks?.title || 'Quick Links'}</h3>
+                                <ul>
+                                    <li><a href="#home">${data.footer?.quickLinks?.aboutUs || 'About Us'}</a></li>
+                                    <li><a href="#loans">${data.footer?.quickLinks?.loans || 'Loans'}</a></li>
+                                    <li><a href="#careers">${data.footer?.quickLinks?.careers || 'Careers'}</a></li>
+                                    <li><a href="#contact">${data.footer?.quickLinks?.contactUs || 'Contact Us'}</a></li>
+                                </ul>
+                            </div>
+                            
+                            <div class="footer-column">
+                                <h3>${data.footer?.legal?.title || 'Legal'}</h3>
+                                <ul>
+                                    <li><a href="#terms">${data.footer?.legal?.terms || 'Terms & Conditions'}</a></li>
+                                    <li><a href="#privacy">${data.footer?.legal?.privacy || 'Privacy Policy'}</a></li>
+                                    <li><a href="#cookies">${data.footer?.legal?.cookies || 'Cookie Policy'}</a></li>
+                                    <li><a href="#complaints">${data.footer?.legal?.complaints || 'Complaints Procedure'}</a></li>
+                                </ul>
+                            </div>
+                            
+                            <div class="footer-column">
+                                <h3>${data.footer?.social?.title || 'Connect With Us'}</h3>
+                                <div class="footer-social">
+                                    ${data.footer?.social?.facebook ? `<a href="${data.footer.social.facebook}" title="Facebook">${data.footer.social.facebookIcon ? `<img src="${data.footer.social.facebookIcon}" alt="Facebook" style="width: 20px; height: 20px; filter: brightness(0) invert(1);">` : 'f'}</a>` : ''}
+                                    ${data.footer?.social?.twitter ? `<a href="${data.footer.social.twitter}" title="Twitter">${data.footer.social.twitterIcon ? `<img src="${data.footer.social.twitterIcon}" alt="Twitter" style="width: 20px; height: 20px; filter: brightness(0) invert(1);">` : '𝕏'}</a>` : ''}
+                                    ${data.footer?.social?.linkedin ? `<a href="${data.footer.social.linkedin}" title="LinkedIn">${data.footer.social.linkedinIcon ? `<img src="${data.footer.social.linkedinIcon}" alt="LinkedIn" style="width: 20px; height: 20px; filter: brightness(0) invert(1);">` : 'in'}</a>` : ''}
+                                    ${data.footer?.social?.instagram ? `<a href="${data.footer.social.instagram}" title="Instagram">${data.footer.social.instagramIcon ? `<img src="${data.footer.social.instagramIcon}" alt="Instagram" style="width: 20px; height: 20px; filter: brightness(0) invert(1);">` : '📷'}</a>` : ''}
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="footer-bottom">
+                            ${data.footer?.copyright || '© 2025 SkyLexfin Group. All rights reserved.'}
+                        </div>
+                    </footer>
+                    
+                    <!-- Login Modal -->
+                    <div id="loginModal" class="modal-overlay" onclick="closeLoginModal(event)">
+                        <div class="login-modal" onclick="event.stopPropagation()">
+                            <div class="modal-header">
+                                <h2 class="modal-title">Log In</h2>
+                                <button class="modal-close" onclick="closeLoginModal()">&times;</button>
+                            </div>
+                            
+                            <form id="loginForm" onsubmit="handleLogin(event)">
+                                <div class="form-group-modal">
+                                    <label for="email">Email Address</label>
+                                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                                </div>
+                                
+                                <div class="form-group-modal">
+                                    <label for="password">Confirm Password</label>
+                                    <input type="password" id="password" name="password" placeholder="Confirm your password" required>
+                                </div>
+                                
+                                <div class="form-options">
+                                    <label class="remember-me">
+                                        <input type="checkbox" id="remember" name="remember">
+                                        Remember me
+                                    </label>
+                                    <a href="javascript:void(0)" class="forgot-password">Forgot password?</a>
+                                </div>
+                                
+                                <button type="submit" class="login-button">Log In</button>
+                                
+                                <div class="signup-link">
+                                    Don't have an account? <a href="javascript:void(0)" onclick="switchToSignup()">Sign up</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <!-- Sign Up Modal -->
+                    <div id="signupModal" class="modal-overlay" onclick="closeSignupModal(event)">
+                        <div class="signup-modal" onclick="event.stopPropagation()">
+                            <div class="modal-header">
+                                <h2 class="modal-title">Create Account</h2>
+                                <button class="modal-close" onclick="closeSignupModal()">&times;</button>
+                            </div>
+                            
+                            <form id="signupForm" onsubmit="handleSignup(event)">
+                                <div class="form-group-modal">
+                                    <label for="fullName">Full Name</label>
+                                    <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+                                </div>
+                                
+                                <div class="form-group-modal">
+                                    <label for="signupEmail">Email Address</label>
+                                    <input type="email" id="signupEmail" name="email" placeholder="Enter your email" required>
+                                </div>
+                                
+                                <div class="form-group-modal">
+                                    <label for="createPassword">Create Password</label>
+                                    <input type="password" id="createPassword" name="password" placeholder="Create a password" required>
+                                </div>
+                                
+                                <div class="form-group-modal">
+                                    <label for="confirmPassword">Confirm Password</label>
+                                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required>
+                                </div>
+                                
+                                <div class="terms-checkbox">
+                                    <input type="checkbox" id="agreeTerms" name="agreeTerms" required>
+                                    <span>I agree to the <a href="javascript:void(0)">Terms of Service</a> and <a href="javascript:void(0)">Privacy Policy</a></span>
+                                </div>
+                                
+                                <button type="submit" class="login-button">Create Account</button>
+                                
+                                <div class="signin-link">
+                                    Already have an account? <a href="javascript:void(0)" onclick="switchToLogin()">Sign in</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                `;
+
+                // Apply branding colors
+                document.documentElement.style.setProperty('--primary-color', data.branding.primaryColor);
+                document.documentElement.style.setProperty('--secondary-color', data.branding.secondaryColor);
+
+                // Update button color
+                const style = document.createElement('style');
+                style.textContent = `
+                    .btn {
+                        background: ${data.branding.primaryColor} !important;
+                    }
+                    .btn:hover {
+                        background: ${data.branding.secondaryColor} !important;
+                    }
+                `;
+                document.head.appendChild(style);
+
+                // Initialize loan calculator
+                setTimeout(() => {
+                    initializeLoanCalculator();
+                }, 100);
+            })
+            .catch(error => {
+                console.error('Error loading site content:', error);
+                document.body.innerHTML = '<div class="loading">Error loading site content</div>';
+            });
+
+        // Loan Calculator Functions
+        function initializeLoanCalculator() {
+            updateLoanAmount();
+            updateSliderTrack();
+        }
+
+        function updateLoanAmount() {
+            const slider = document.getElementById('loanSlider');
+            const display = document.getElementById('loanAmountDisplay');
+            if (slider && display) {
+                const value = parseInt(slider.value);
+                display.textContent = 'R ' + value.toLocaleString();
+                updateSliderTrack();
+            }
+        }
+
+        function updateSliderTrack() {
+            const slider = document.getElementById('loanSlider');
+            const track = document.getElementById('sliderTrack');
+            if (slider && track) {
+                const value = parseInt(slider.value);
+                const min = parseInt(slider.min);
+                const max = parseInt(slider.max);
+                const percentage = ((value - min) / (max - min)) * 100;
+                track.style.width = percentage + '%';
+            }
+        }
+
+        function decreaseLoan() {
+            const slider = document.getElementById('loanSlider');
+            if (slider) {
+                const currentValue = parseInt(slider.value);
+                const min = parseInt(slider.min);
+                const step = parseInt(slider.step);
+                if (currentValue > min) {
+                    slider.value = Math.max(min, currentValue - step);
+                    updateLoanAmount();
+                }
+            }
+        }
+
+        function increaseLoan() {
+            const slider = document.getElementById('loanSlider');
+            if (slider) {
+                const currentValue = parseInt(slider.value);
+                const max = parseInt(slider.max);
+                const step = parseInt(slider.step);
+                if (currentValue < max) {
+                    slider.value = Math.min(max, currentValue + step);
+                    updateLoanAmount();
+                }
+            }
+        }
+
+        // Login Modal Functions
+        function openLoginModal() {
+            const modal = document.getElementById('loginModal');
+            if (modal) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            }
+        }
+
+        function closeLoginModal(event) {
+            const modal = document.getElementById('loginModal');
+            if (modal && (!event || event.target === modal || event.target.classList.contains('modal-close'))) {
+                modal.classList.remove('active');
+                document.body.style.overflow = ''; // Restore scrolling
+                
+                // Reset form
+                const form = document.getElementById('loginForm');
+                if (form) {
+                    form.reset();
+                }
+            }
+        }
+
+        function handleLogin(event) {
+            event.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const remember = document.getElementById('remember').checked;
+            
+            // Here you would typically send the login data to your backend
+            console.log('Login attempt:', { email, password, remember });
+            
+            // For demo purposes, just show an alert
+            alert('Login functionality would be implemented here');
+            
+            // Close modal after submission
+            closeLoginModal();
+        }
+
+        // Sign Up Modal Functions
+        function openSignupModal() {
+            const modal = document.getElementById('signupModal');
+            if (modal) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            }
+        }
+
+        function closeSignupModal(event) {
+            const modal = document.getElementById('signupModal');
+            if (modal && (!event || event.target === modal || event.target.classList.contains('modal-close'))) {
+                modal.classList.remove('active');
+                document.body.style.overflow = ''; // Restore scrolling
+                
+                // Reset form
+                const form = document.getElementById('signupForm');
+                if (form) {
+                    form.reset();
+                }
+            }
+        }
+
+        function handleSignup(event) {
+            event.preventDefault();
+            
+            const fullName = document.getElementById('fullName').value;
+            const email = document.getElementById('signupEmail').value;
+            const password = document.getElementById('createPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const agreeTerms = document.getElementById('agreeTerms').checked;
+            
+            // Validation
+            if (password !== confirmPassword) {
+                alert('Passwords do not match!');
+                return;
+            }
+            
+            if (!agreeTerms) {
+                alert('Please agree to the Terms of Service and Privacy Policy');
+                return;
+            }
+            
+            // Here you would typically send the signup data to your backend
+            console.log('Signup attempt:', { fullName, email, password, agreeTerms });
+            
+            // For demo purposes, just show an alert
+            alert('Account creation functionality would be implemented here');
+            
+            // Close modal after submission
+            closeSignupModal();
+        }
+
+        function switchToSignup() {
+            closeLoginModal();
+            setTimeout(() => {
+                openSignupModal();
+            }, 300); // Small delay for smooth transition
+        }
+
+        function switchToLogin() {
+            closeSignupModal();
+            setTimeout(() => {
+                openLoginModal();
+            }, 300); // Small delay for smooth transition
+        }
+
+        // Close modal when pressing Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeLoginModal();
+                closeSignupModal();
+            }
+        });
+    </script>
+</body>
+
+</html>
